@@ -71,3 +71,11 @@
 **Context**: INCEPTION - Workflow Planning 完了 (承認待ち)
 
 ---
+
+## Requirements - Future Extension Added
+**Timestamp**: 2026-05-27T00:07:00Z
+**User Input**: "今はやらなくていいけど、現在地との近さも加味したい"
+**AI Response**: requirements.md に「4.3 将来拡張候補」セクションを追加し、Geolocation/距離ソートを FR-Future-1 として記録。MVPスコープには含めない（店舗データ構造に lat/lng を追加可能な余地は残す）。Workflow Planning 承認待ちは継続。
+**Context**: INCEPTION - Requirements Analysis 追記（将来拡張）
+
+---
