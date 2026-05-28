@@ -31,12 +31,12 @@
 - [x] Requirements Analysis - COMPLETED (Approved by user)
 - [x] User Stories - SKIPPED (1人向けMVPのため)
 - [x] Workflow Planning - COMPLETED (Approved by user)
-- [x] Application Design - COMPLETED (承認待ち)
+- [x] Application Design - COMPLETED (Approved by user)
 - [ ] Units Generation - SKIPPED
 
 ### CONSTRUCTION PHASE
 - [ ] Functional Design - SKIPPED
-- [ ] NFR Requirements - EXECUTE
+- [ ] NFR Requirements - IN PROGRESS（回答待ち）
 - [ ] NFR Design - SKIPPED
 - [ ] Infrastructure Design - SKIPPED
 - [ ] Code Generation - EXECUTE
@@ -46,6 +46,6 @@
 - [ ] Operations - PLACEHOLDER
 
 ## Current Status
-- **Lifecycle Phase**: INCEPTION
-- **Current Stage**: Application Design（承認待ち）
-- **Next Stage**: CONSTRUCTION - NFR Requirements
+- **Lifecycle Phase**: CONSTRUCTION
+- **Current Stage**: NFR Requirements（回答待ち）
+- **Next Stage**: Code Generation
