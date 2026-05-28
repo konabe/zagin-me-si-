@@ -43,7 +43,7 @@
 - **B**: 分離 — 「FilterPanel コンポーネント」と「RestaurantList コンポーネント」を別ファイルに分け、ページから両者を組み合わせる（再利用性・テスト容易性が高い）
 - **C**: さらに細分化 — 「FilterPanel」「GenreFilter」「BudgetFilter」「RestaurantList」「RestaurantCard」「EmptyState」など細かく分割（拡張性最大、ファイル数多）
 
-[Answer]: 
+[Answer]: C
 
 ---
 
@@ -55,7 +55,7 @@
 - **B**: **純粋関数として `lib/filter.ts` などに切り出す**（テスト容易、推奨）
 - **C**: クラスベースの Service オブジェクトに包む（OOPで設計したい場合）
 
-[Answer]: 
+[Answer]: C
 
 ---
 
@@ -68,7 +68,7 @@
 - **C**: Redux / Zustand など外部ライブラリ
 - **D**: URLクエリパラメータに同期させる（リンク共有可能）
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -89,7 +89,7 @@
 
 回答スタイル: **A**（上記の必須セット + lat/lng オプショナル を採用）/ **B**（さらに項目を追加したい、内容を記述）/ **C**（減らしたい、内容を記述）
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -101,7 +101,7 @@ JSONサンプルデータの読み込み方は？
 - **B**: ランタイムで fetch（`/data/restaurants.json` をブラウザから取得）— データ差し替えがビルドなしで可能
 - **C**: ファイルシステムからサーバー側で読み込み（SSR/API経由）
 
-[Answer]: 
+[Answer]: B
 
 ---
 

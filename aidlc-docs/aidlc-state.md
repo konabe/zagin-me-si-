@@ -30,8 +30,8 @@
 - [x] Reverse Engineering - SKIPPED (Greenfield)
 - [x] Requirements Analysis - COMPLETED (Approved by user)
 - [x] User Stories - SKIPPED (1人向けMVPのため)
-- [x] Workflow Planning - COMPLETED (承認待ち)
-- [ ] Application Design - EXECUTE
+- [x] Workflow Planning - COMPLETED (Approved by user)
+- [x] Application Design - COMPLETED (承認待ち)
 - [ ] Units Generation - SKIPPED
 
 ### CONSTRUCTION PHASE
@@ -47,5 +47,5 @@
 
 ## Current Status
 - **Lifecycle Phase**: INCEPTION
-- **Current Stage**: Workflow Planning（承認待ち）
-- **Next Stage**: Application Design
+- **Current Stage**: Application Design（承認待ち）
+- **Next Stage**: CONSTRUCTION - NFR Requirements
