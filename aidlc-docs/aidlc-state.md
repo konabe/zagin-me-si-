@@ -36,7 +36,7 @@
 
 ### CONSTRUCTION PHASE
 - [ ] Functional Design - SKIPPED
-- [ ] NFR Requirements - IN PROGRESS（回答待ち）
+- [x] NFR Requirements - COMPLETED（承認待ち）
 - [ ] NFR Design - SKIPPED
 - [ ] Infrastructure Design - SKIPPED
 - [ ] Code Generation - EXECUTE
@@ -47,5 +47,5 @@
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: NFR Requirements（回答待ち）
+- **Current Stage**: NFR Requirements（承認待ち）
 - **Next Stage**: Code Generation

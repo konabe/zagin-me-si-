@@ -28,7 +28,7 @@ React を採用する前提で、ビルド基盤は？
 - **B**: Next.js（フルスタック、将来のSSR/APIに強い、設定多め）
 - **C**: Remix（フォーム駆動、現代的）
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -41,7 +41,7 @@ UIスタイルの実装方法は？
 - **C**: 素のCSS / 単一スタイルシート（最小構成）
 - **D**: styled-components / Emotion（CSS-in-JS）
 
-[Answer]: 
+[Answer]: D（具体ライブラリは **Emotion** に確定）
 
 ---
 
@@ -53,7 +53,7 @@ UIスタイルの実装方法は？
 - **B**: Jest（成熟、エコシステム大）
 - **C**: Node 標準の `node:test`（最小依存）
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -64,7 +64,7 @@ UI コンポーネントのテストも書く？
 - **A**: 書く（@testing-library/react を導入し RestaurantCard 等の描画テスト）
 - **B**: 書かない（フィルタロジックのユニットテストだけにする、MVP として軽量）
 
-[Answer]: 
+[Answer]: A
 
 ---
 
@@ -76,7 +76,7 @@ UI コンポーネントのテストも書く？
 - **B**: Biome（高速、設定最小、新興）
 - **C**: 入れない（MVP として最小構成）
 
-[Answer]: 
+[Answer]: B
 
 ---
 
@@ -88,7 +88,7 @@ UI コンポーネントのテストも書く？
 - **B**: pnpm（高速・ディスク効率）
 - **C**: yarn
 
-[Answer]: 
+[Answer]: B
 
 ---
 
@@ -104,7 +104,7 @@ requirements.md の以下は変更不要でよいか？
 
 回答: **A**（このまま）/ **B**（変更したい。内容を記述）
 
-[Answer]: 
+[Answer]: B — デプロイは Vercel などのデプロイメントサービスを利用したい（クラウドデプロイをスコープに含める）
 
 ---
 

@@ -119,3 +119,27 @@
 **Context**: CONSTRUCTION - NFR Requirements Plan 作成完了（回答待ち）
 
 ---
+
+## NFR Requirements - Answers Received
+**Timestamp**: 2026-05-27T00:13:00Z
+**User Input**: "Q1 A\nQ2 D\nQ3 A\nQ4 A\nQ5 B\nQ6 B\nQ7 B デプロイはvercelなどのデプロイメントサービスを利用したい"
+**AI Response**: 回答を analyze。Q2 D（CSS-in-JS）にライブラリの曖昧さを検出し follow-up 実施。Q7 B により Vercel デプロイがスコープに追加。
+**Context**: CONSTRUCTION - NFR Requirements 回答受領
+
+---
+
+## NFR Requirements - Follow-up (Q2 CSS-in-JS Library)
+**Timestamp**: 2026-05-27T00:14:00Z
+**User Input**: "Emotion (@emotion/react + @emotion/styled)"
+**AI Response**: Emotion 採用確定。
+**Context**: CONSTRUCTION - NFR Requirements 曖昧性解消
+
+---
+
+## NFR Requirements - Artifacts Generated + Requirements Updated
+**Timestamp**: 2026-05-27T00:15:00Z
+**User Input**: (該当なし - システム処理)
+**AI Response**: requirements.md に NFR-7（デプロイ）と In Scope 項目を追加。construction/zagin-web/nfr-requirements/ 配下に nfr-requirements.md と tech-stack-decisions.md を生成。Infrastructure Design ステージは再開せず（Vercel 自動検出のため）、Code Generation で対応する判断を文書化。承認待ち。
+**Context**: CONSTRUCTION - NFR Requirements 成果物生成完了（承認待ち）
+
+---
