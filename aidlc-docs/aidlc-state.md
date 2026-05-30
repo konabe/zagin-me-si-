@@ -36,10 +36,10 @@
 
 ### CONSTRUCTION PHASE
 - [ ] Functional Design - SKIPPED
-- [x] NFR Requirements - COMPLETED（承認待ち）
+- [x] NFR Requirements - COMPLETED (Approved by user)
 - [ ] NFR Design - SKIPPED
 - [ ] Infrastructure Design - SKIPPED
-- [ ] Code Generation - EXECUTE
+- [ ] Code Generation - Part 1 (Planning) COMPLETED, Part 2 (Generation) PENDING
 - [ ] Build and Test - EXECUTE
 
 ### OPERATIONS PHASE
@@ -47,5 +47,5 @@
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: NFR Requirements（承認待ち）
-- **Next Stage**: Code Generation
+- **Current Stage**: Code Generation - Part 1 Planning（承認待ち）
+- **Next Stage**: Code Generation - Part 2 Generation
