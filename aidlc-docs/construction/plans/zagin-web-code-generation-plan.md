@@ -72,90 +72,90 @@ TypeScript / React 18 / Vite / Emotion / Vitest / @testing-library/react / Biome
 ## 実装ステップ
 
 ### Step 1: プロジェクト構造セットアップ
-- [ ] `package.json` を作成（dependencies / devDependencies / scripts: dev, build, preview, test, lint, format）
-- [ ] `tsconfig.json` / `tsconfig.node.json` を作成（strict, ESNext, JSX）
-- [ ] `vite.config.ts` を作成（@vitejs/plugin-react + Vitest 設定）
-- [ ] `biome.json` を作成（lint + format）
-- [ ] `index.html` を作成（root div + main.tsx エントリ）
-- [ ] `.gitignore` を作成（node_modules, dist, coverage 等）
+- [x] `package.json` を作成（dependencies / devDependencies / scripts: dev, build, preview, test, lint, format）
+- [x] `tsconfig.json` / `tsconfig.node.json` を作成（strict, ESNext, JSX）
+- [x] `vite.config.ts` を作成（@vitejs/plugin-react + Vitest 設定）
+- [x] `biome.json` を作成（lint + format）
+- [x] `index.html` を作成（root div + main.tsx エントリ）
+- [x] `.gitignore` を作成（node_modules, dist, coverage 等）
 
 ### Step 2: 型定義の生成（モデル層）
-- [ ] `src/types/restaurant.ts` を作成
+- [x] `src/types/restaurant.ts` を作成
   - `Restaurant` 型（id, name, genre, budget, description, area, lat?, lng?）
   - `BudgetRange` 型
   - `FilterCriteria` 型
   - `BUDGET_RANGES` 定数（UI で使う表示順 + ラベル）
 
 ### Step 3: サンプルデータ
-- [ ] `public/data/restaurants.json` を作成
+- [x] `public/data/restaurants.json` を作成
   - 15件程度の銀座ランチ店サンプルデータ（実在しない架空店舗で良い）
   - 各店に id / name / genre / budget / description / area を持たせる
   - lat / lng は今回は含めない（将来用に optional）
 
 ### Step 4: ビジネスロジック層の生成
-- [ ] `src/lib/RestaurantSearchService.ts` を作成
+- [x] `src/lib/RestaurantSearchService.ts` を作成
   - `class RestaurantSearchService { constructor(restaurants) ... }`
   - `getAll()` / `getAvailableGenres()` / `filter(criteria)` を実装
   - フィルタルール: genres が空配列ならすべて通過、budget が null ならすべて通過、両者の AND で絞り込む
 
 ### Step 5: ビジネスロジック層のユニットテスト
-- [ ] `tests/lib/RestaurantSearchService.test.ts` を作成
+- [x] `tests/lib/RestaurantSearchService.test.ts` を作成
   - `getAll`: 全件返すこと
   - `getAvailableGenres`: 重複除去・ソート
   - `filter`: ジャンル単体 / 予算単体 / 両方 / 空 criteria / 該当無し のケース
 
 ### Step 6: ビジネスロジック層のサマリー
-- [ ] `aidlc-docs/construction/zagin-web/code/business-logic-summary.md` を作成
+- [x] `aidlc-docs/construction/zagin-web/code/business-logic-summary.md` を作成
 
 ### Step 7: データアクセス層の生成
-- [ ] `src/lib/RestaurantRepository.ts` を作成
+- [x] `src/lib/RestaurantRepository.ts` を作成
   - `class RestaurantRepository { constructor(dataUrl) ... loadAll() }`
   - `loadAll` は `fetch(dataUrl)` → JSON パース → 配列を返す
   - 失敗時は例外を投げる
 
 ### Step 8: データアクセス層のユニットテスト
-- [ ] `tests/lib/RestaurantRepository.test.ts` を作成
+- [x] `tests/lib/RestaurantRepository.test.ts` を作成
   - `fetch` をモックし、成功・失敗ケースをテスト
 
 ### Step 9: データアクセス層のサマリー
-- [ ] `aidlc-docs/construction/zagin-web/code/repository-summary.md` を作成
+- [x] `aidlc-docs/construction/zagin-web/code/repository-summary.md` を作成
 
 ### Step 10: フロントエンドコンポーネント生成 - 葉ノード
-- [ ] `src/components/EmptyState.tsx`
-- [ ] `src/components/RestaurantCard.tsx`
-- [ ] `src/components/GenreFilter.tsx`
-- [ ] `src/components/BudgetFilter.tsx`
-- [ ] data-testid 属性を主要要素に付与（例: `restaurant-card`, `genre-filter-checkbox`, `budget-filter-radio`, `empty-state`）
+- [x] `src/components/EmptyState.tsx`
+- [x] `src/components/RestaurantCard.tsx`
+- [x] `src/components/GenreFilter.tsx`
+- [x] `src/components/BudgetFilter.tsx`
+- [x] data-testid 属性を主要要素に付与（例: `restaurant-card`, `genre-filter-checkbox`, `budget-filter-radio`, `empty-state`）
 
 ### Step 11: フロントエンドコンポーネント生成 - 中間/ルート
-- [ ] `src/components/FilterPanel.tsx`（GenreFilter + BudgetFilter を内包）
-- [ ] `src/components/RestaurantList.tsx`（RestaurantCard × N or EmptyState）
-- [ ] `src/App.tsx`（Repository + Service + 状態管理）
-- [ ] `src/main.tsx`（React DOM root マウント）
-- [ ] Emotion でレスポンシブなスタイルを実装
+- [x] `src/components/FilterPanel.tsx`（GenreFilter + BudgetFilter を内包）
+- [x] `src/components/RestaurantList.tsx`（RestaurantCard × N or EmptyState）
+- [x] `src/App.tsx`（Repository + Service + 状態管理）
+- [x] `src/main.tsx`（React DOM root マウント）
+- [x] Emotion でレスポンシブなスタイルを実装
 
 ### Step 12: テスト環境セットアップ
-- [ ] `src/test/setup.ts` を作成（@testing-library/jest-dom の設定）
+- [x] `src/test/setup.ts` を作成（@testing-library/jest-dom の設定）
 
 ### Step 13: フロントエンドコンポーネントのテスト
-- [ ] `tests/components/RestaurantCard.test.tsx`
-- [ ] `tests/components/EmptyState.test.tsx`
-- [ ] `tests/components/GenreFilter.test.tsx`
-- [ ] `tests/components/BudgetFilter.test.tsx`
-- [ ] `tests/components/RestaurantList.test.tsx`
-- [ ] `tests/components/FilterPanel.test.tsx`
-- [ ] `tests/components/App.test.tsx`（fetch モック → ロード → フィルタ → 描画の統合テスト）
+- [x] `tests/components/RestaurantCard.test.tsx`
+- [x] `tests/components/EmptyState.test.tsx`
+- [x] `tests/components/GenreFilter.test.tsx`
+- [x] `tests/components/BudgetFilter.test.tsx`
+- [x] `tests/components/RestaurantList.test.tsx`
+- [x] `tests/components/FilterPanel.test.tsx`
+- [x] `tests/components/App.test.tsx`（fetch モック → ロード → フィルタ → 描画の統合テスト）
 
 ### Step 14: フロントエンドのサマリー
-- [ ] `aidlc-docs/construction/zagin-web/code/frontend-summary.md` を作成
+- [x] `aidlc-docs/construction/zagin-web/code/frontend-summary.md` を作成
 
 ### Step 15: デプロイ成果物
-- [ ] 必要なら `vercel.json` を作成（Vite なら不要のことが多い。判断: 静的ホスティング設定が自動検出されない場合のみ）
-- [ ] 不要と判断した場合はその旨を documentation に記載
+- [x] 必要なら `vercel.json` を作成（Vite なら不要のことが多い。判断: 静的ホスティング設定が自動検出されない場合のみ）
+- [x] 不要と判断した場合はその旨を documentation に記載
 
 ### Step 16: ドキュメント
-- [ ] `README.md` を更新（プロジェクト概要・セットアップ・起動・テスト・デプロイ手順）
-- [ ] `aidlc-docs/construction/zagin-web/code/code-generation-summary.md` を作成
+- [x] `README.md` を更新（プロジェクト概要・セットアップ・起動・テスト・デプロイ手順）
+- [x] `aidlc-docs/construction/zagin-web/code/code-generation-summary.md` を作成
 
 ---
 

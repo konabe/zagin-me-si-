@@ -39,7 +39,7 @@
 - [x] NFR Requirements - COMPLETED (Approved by user)
 - [ ] NFR Design - SKIPPED
 - [ ] Infrastructure Design - SKIPPED
-- [ ] Code Generation - Part 1 (Planning) COMPLETED, Part 2 (Generation) PENDING
+- [x] Code Generation - Part 1 (Planning) COMPLETED, Part 2 (Generation) COMPLETED（承認待ち）
 - [ ] Build and Test - EXECUTE
 
 ### OPERATIONS PHASE
@@ -47,5 +47,5 @@
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: Code Generation - Part 1 Planning（承認待ち）
-- **Next Stage**: Code Generation - Part 2 Generation
+- **Current Stage**: Code Generation（Part 2 完了、承認待ち）
+- **Next Stage**: Build and Test
