@@ -175,3 +175,11 @@
 **Context**: CONSTRUCTION - Code Generation Part 2 完了（承認待ち）
 
 ---
+
+## Scope Clarification - i18n Out of Scope
+**Timestamp**: 2026-05-27T00:20:00Z
+**User Input**: "ローカライゼーションは考えなくていいです。日本語限定なので。"
+**AI Response**: requirements.md 4.2 Out of Scope に「多言語対応 / i18n」を追記。現状のコードは日本語ハードコードのため変更不要。
+**Context**: スコープ確認（i18n 不要、日本語限定）
+
+---
