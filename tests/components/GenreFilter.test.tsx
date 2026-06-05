@@ -12,9 +12,7 @@ describe("GenreFilter", () => {
   });
 
   it("選択中のジャンルにチェックが入っている", () => {
-    render(
-      <GenreFilter selected={["和食"]} available={["和食", "中華"]} onChange={() => {}} />,
-    );
+    render(<GenreFilter selected={["和食"]} available={["和食", "中華"]} onChange={() => {}} />);
     const checkboxes = screen.getAllByTestId("genre-filter-checkbox") as HTMLInputElement[];
     expect(checkboxes[0]?.checked).toBe(true);
     expect(checkboxes[1]?.checked).toBe(false);

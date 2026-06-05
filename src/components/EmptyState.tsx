@@ -8,14 +8,14 @@ export function EmptyState({
   message = "条件に合うランチ店が見つかりませんでした。条件を変えて再度お試しください。",
 }: EmptyStateProps) {
   return (
-    <Container data-testid="empty-state" role="status">
+    <Container data-testid="empty-state">
       <Icon aria-hidden="true">🍽️</Icon>
       <Message>{message}</Message>
     </Container>
   );
 }
 
-const Container = styled.div`
+const Container = styled.output`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,6 +24,7 @@ const Container = styled.div`
   background-color: #fafafa;
   border-radius: 8px;
   color: #666;
+  width: 100%;
 `;
 
 const Icon = styled.div`

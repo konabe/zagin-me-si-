@@ -7,6 +7,11 @@ coverage
 .vite
 .vercel
 
+# TypeScript build artifacts
+*.tsbuildinfo
+vite.config.d.ts
+vite.config.js
+
 # Editor
 .vscode/*
 !.vscode/extensions.json

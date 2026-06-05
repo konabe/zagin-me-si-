@@ -39,13 +39,13 @@
 - [x] NFR Requirements - COMPLETED (Approved by user)
 - [ ] NFR Design - SKIPPED
 - [ ] Infrastructure Design - SKIPPED
-- [x] Code Generation - Part 1 (Planning) COMPLETED, Part 2 (Generation) COMPLETED（承認待ち）
-- [ ] Build and Test - EXECUTE
+- [x] Code Generation - Part 1 (Planning) COMPLETED, Part 2 (Generation) COMPLETED (Approved by user)
+- [x] Build and Test - COMPLETED（承認待ち）
 
 ### OPERATIONS PHASE
 - [ ] Operations - PLACEHOLDER
 
 ## Current Status
 - **Lifecycle Phase**: CONSTRUCTION
-- **Current Stage**: Code Generation（Part 2 完了、承認待ち）
-- **Next Stage**: Build and Test
+- **Current Stage**: Build and Test（完了、承認待ち）
+- **Next Stage**: Operations（プレースホルダー）→ 実質的にはワークフロー完了

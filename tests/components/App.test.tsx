@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { App } from "../../src/App";
@@ -64,7 +64,8 @@ describe("App (integration)", () => {
       expect(screen.getAllByTestId("restaurant-card")).toHaveLength(3);
     });
 
-    await user.click(screen.getByText("和食"));
+    const filterPanel = screen.getByTestId("filter-panel");
+    await user.click(within(filterPanel).getByText("和食"));
 
     await waitFor(() => {
       expect(screen.getAllByTestId("restaurant-card")).toHaveLength(2);
@@ -80,8 +81,9 @@ describe("App (integration)", () => {
       expect(screen.getAllByTestId("restaurant-card")).toHaveLength(3);
     });
 
-    await user.click(screen.getByText("和食"));
-    await user.click(screen.getByText("2,000〜3,000円"));
+    const filterPanel = screen.getByTestId("filter-panel");
+    await user.click(within(filterPanel).getByText("和食"));
+    await user.click(within(filterPanel).getByText("2,000〜3,000円"));
 
     await waitFor(() => {
       expect(screen.getAllByTestId("restaurant-card")).toHaveLength(1);
@@ -97,8 +99,9 @@ describe("App (integration)", () => {
       expect(screen.getAllByTestId("restaurant-card")).toHaveLength(3);
     });
 
-    await user.click(screen.getByText("イタリアン"));
-    await user.click(screen.getByText("〜1,000円"));
+    const filterPanel = screen.getByTestId("filter-panel");
+    await user.click(within(filterPanel).getByText("イタリアン"));
+    await user.click(within(filterPanel).getByText("〜1,000円"));
 
     await waitFor(() => {
       expect(screen.getByTestId("empty-state")).toBeInTheDocument();
