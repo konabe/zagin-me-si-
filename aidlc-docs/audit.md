@@ -183,3 +183,11 @@
 **Context**: スコープ確認（i18n 不要、日本語限定）
 
 ---
+
+## Scope Clarification - Reflect in Code
+**Timestamp**: 2026-05-27T00:21:00Z
+**User Input**: "コードにも反映させて"
+**AI Response**: index.html に `<meta http-equiv="content-language" content="ja">` を追加。README に「言語」セクションを追加し日本語限定・i18n非対応を明記。既存の `<html lang="ja">` および localeCompare(.., "ja") は変更不要。
+**Context**: i18n スコープ外をコードレベルにも反映
+
+---
