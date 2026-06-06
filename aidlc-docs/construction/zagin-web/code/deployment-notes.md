@@ -1,32 +1,49 @@
 # Deployment Notes — zagin-web
 
-## デプロイ先
-Vercel（または互換ホスティング: Netlify / Cloudflare Pages 等）
+## デプロイ方式
+**GitHub Actions → Vercel CLI**（Vercel ネイティブの Git 自動デプロイは無効化）
 
-## vercel.json の判断
+## ファイル
+- `.github/workflows/ci-cd.yml` — CI（test ジョブ） + Deploy（deploy ジョブ）
+- `vercel.json` — `git.deploymentEnabled: false`（Vercel 側の自動デプロイ無効化）
 
-**結論: 作成しない（Vercel の自動検出に任せる）**
+## ワークフロー
 
-理由:
-- Vercel は Vite プロジェクトを自動検出する
-  - Build Command: `pnpm build`
-  - Output Directory: `dist`
-  - Install Command: `pnpm install`（package.json の `packageManager` で pnpm が選ばれる）
-- 環境変数なし、リダイレクト/ヘッダー設定なし、サーバーレス関数なし
-- 余計な `vercel.json` を置くと、将来 Vercel 側のデフォルト改善を取り込めなくなる
+### `test` ジョブ（PR と main push の両方で実行）
+- `pnpm install --frozen-lockfile`
+- `pnpm check`（Biome lint + format）
+- `pnpm exec tsc -b`（型チェック）
+- `pnpm test`（Vitest 全テスト）
+- `pnpm build`（プロダクションビルド）
 
-## デプロイ手順
-1. GitHub にリポジトリを push（既に push 済み）
-2. https://vercel.com にログインし「Add New Project」
-3. リポジトリ `konabe/zagin-me-si-` を選択
-4. Framework Preset が **Vite** に自動設定されることを確認
-5. **Deploy** クリック → 完了
+### `deploy` ジョブ（test ジョブが成功した後に実行）
+- Vercel CLI を pnpm 経由でインストール
+- `main` への push なら **Production** デプロイ、PR なら **Preview** デプロイ
+- 流れ: `vercel pull` → `vercel build` → `vercel deploy --prebuilt`
+- PR では deploy 後に Preview URL を PR コメントとして投稿（既存コメントがあれば更新）
+
+## 必須 GitHub Secrets
+
+| Secret 名 | 取得方法 |
+|-----------|---------|
+| `VERCEL_TOKEN` | https://vercel.com/account/tokens で発行 |
+| `VERCEL_ORG_ID` | ローカルで `pnpm dlx vercel link` 実行後、`.vercel/project.json` の `orgId` |
+| `VERCEL_PROJECT_ID` | 同上、`.vercel/project.json` の `projectId` |
+
+## なぜ Vercel ネイティブ自動デプロイではなく Actions か
+
+| 観点 | Vercel 自動デプロイ | GitHub Actions |
+|------|-------------------|---------------|
+| CI ゲート | プロジェクト側の Ignored Build Step に閉じる | テスト / lint / 型チェックを明示的に gate にできる |
+| カスタマイズ | 限定的 | 任意のステップ追加可（PR コメント、Slack 通知 等） |
+| 可視性 | Vercel ダッシュボード | GitHub の Actions タブで一元管理 |
+| 二重デプロイ | 両方有効だと衝突 | `vercel.json` で Vercel 側を無効化 |
 
 ## 検証
-- Vercel が割り当てる URL（例: `zagin-me-si.vercel.app`）にアクセス
-- 一覧が表示され、フィルタが動作することを確認
-- Lighthouse でパフォーマンスを軽くチェック（NFR-1）
 
-## 注意
-- `public/data/restaurants.json` は静的アセットとして配信される
-- `/data/restaurants.json` パスでブラウザから取得可能
+ローカルからは検証できない（GitHub Actions と Vercel 環境が必要）。
+セットアップ後、以下で確認:
+
+1. Secrets 登録後、PR を作成 → Actions の `deploy` ジョブが Preview URL を返す
+2. PR にコメントが付き、Preview URL でアクセス可能
+3. main にマージ → 同じワークフローが Production デプロイを実行

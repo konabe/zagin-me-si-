@@ -51,13 +51,37 @@ pnpm lint
 pnpm format        # フォーマット適用
 ```
 
-## デプロイ（Vercel）
+## デプロイ（Vercel via GitHub Actions）
 
-1. GitHub にリポジトリを push
-2. [Vercel](https://vercel.com/) で「Add New Project」→ このリポジトリを選択
-3. Framework Preset が **Vite** に自動設定されることを確認して **Deploy**
+このリポジトリは **GitHub Actions** から Vercel にデプロイします。Vercel ネイティブの Git 連携自動デプロイは `vercel.json` で無効化済み（二重デプロイ防止）。
 
-`vercel.json` は不要（Vercel が Vite を自動検出するため）。
+### デプロイの発火条件
+
+| イベント | デプロイ先 |
+|---------|-----------|
+| `main` への push | **Production** |
+| Pull Request | **Preview**（PR にコメントで URL が貼られる） |
+
+CI（lint + 型チェック + テスト + ビルド）が通った時のみデプロイされます。
+
+### 初回セットアップ
+
+1. **Vercel プロジェクトを作成**
+   - ローカルで `pnpm dlx vercel link` を実行し、Vercel アカウントにログインしてプロジェクトを作成
+   - 完了すると `.vercel/project.json` が生成され、`orgId` / `projectId` が記録される
+2. **Vercel トークンを取得**
+   - https://vercel.com/account/tokens で Personal Token を発行
+3. **GitHub Secrets を登録**（Repository settings → Secrets and variables → Actions）
+
+   | Secret 名 | 値 |
+   |-----------|----|
+   | `VERCEL_TOKEN` | 上記で発行した Token |
+   | `VERCEL_ORG_ID` | `.vercel/project.json` の `orgId` |
+   | `VERCEL_PROJECT_ID` | `.vercel/project.json` の `projectId` |
+4. PR を作成または `main` に push すると、Actions が自動でデプロイします
+
+### ワークフロー
+`.github/workflows/ci-cd.yml` を参照。
 
 ## ディレクトリ構成
 

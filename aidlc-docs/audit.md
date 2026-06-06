@@ -208,6 +208,19 @@
 
 ---
 
+## Post-Workflow Change Request - GitHub Actions Deployment
+**Timestamp**: 2026-05-27T00:25:00Z
+**User Input**: "Github Actions で Vercelにデプロイできるように設定していって"
+**AI Response**: ワークフロー完了後の追加要件として実装。Vercel 自動デプロイから GitHub Actions 主導のデプロイに変更。
+- `.github/workflows/ci-cd.yml` を新規作成（test ジョブ → deploy ジョブの依存関係、main 押下で Production、PR で Preview、PR コメント自動更新）
+- `vercel.json` を新規作成（`git.deploymentEnabled: false` で Vercel 側の自動デプロイを無効化、二重デプロイ防止）
+- requirements.md NFR-7 を更新（GitHub Actions 経由のデプロイ + CI gate を明記）
+- README のデプロイ手順を全面改定（Secrets セットアップ手順を含む）
+- aidlc-docs/construction/zagin-web/code/deployment-notes.md を上書き
+**Context**: ワークフロー完了後の Operations 領域の追加要件（ワークフローを再開せず軽量適用）
+
+---
+
 ## Build and Test Stage
 **Timestamp**: 2026-05-27T00:23:00Z
 **Build Status**: Success
